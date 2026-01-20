@@ -206,7 +206,7 @@ const InvitationPage = () => {
               <h3 className="card-title">{inviteData.gratitudeTitle} <span role="img" aria-label="scroll" style={{marginLeft: '6px', verticalAlign: 'middle'}}>📜</span></h3>
               <p className="card-subtitle">{inviteData.gratitudeSubtitle}</p>
             </div>
-            <div className="card-body">
+            <div className="card-body scrollable">
               <p className="gratitude-message">
                 {inviteData.gratitudeMessage}
               </p>
