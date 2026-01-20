@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#root {
+  width: 100%;
+}
+
+.invite-container {
+  width: 100%;
+  max-width: 1000px;
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 100px 40px;
+  text-align: center;
+  color: white;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.event-year {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.main-title {
+  font-size: 72px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.sub-text {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+.batch-highlight {
+  display: block;
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 15px;
+  letter-spacing: 1px;
+}
+
+/* Details Section */
+.details-section {
+  padding: 60px 40px;
+  background: #f8f9fa;
+}
+
+.details-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.datetime-box,
+.venue-box {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.datetime-label,
+.venue-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.datetime-value {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+}
+
+.venue-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.venue-address {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA Button */
+.cta-button {
+  width: 100%;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 20px;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* Countdown Timer */
+.countdown-section {
+  background: white;
+  padding: 50px 40px;
+  border-top: 1px solid #eee;
+}
+
+.countdown-timer {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.countdown-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #667eea;
+  min-width: 100px;
+  text-align: center;
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 30px;
+    min-height: 350px;
+  }
+
+  .main-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  .sub-text {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .batch-highlight {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .event-year {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .details-section {
+    padding: 40px 30px;
+  }
+
+  .datetime-box,
+  .venue-box {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+
+  .datetime-value {
+    font-size: 18px;
+  }
+
+  .venue-name {
+    font-size: 16px;
+  }
+
+  .venue-address {
+    font-size: 14px;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .countdown-value {
+    font-size: 36px;
+    min-width: 80px;
+  }
+
+  .countdown-section {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 20px;
+  }
+
+  .main-title {
+    font-size: 32px;
+  }
+
+  .sub-text {
+    font-size: 14px;
+  }
+
+  .batch-highlight {
+    font-size: 18px;
+  }
+
+  .datetime-box,
+  .venue-box {
+    padding: 15px;
+  }
+
+  .datetime-value {
+    font-size: 16px;
+  }
+
+  .venue-name {
+    font-size: 14px;
+  }
+
+  .countdown-value {
+    font-size: 28px;
+  }
+}

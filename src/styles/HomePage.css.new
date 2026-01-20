@@ -1,0 +1,551 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0033 0%, #330066 25%, #4d0099 50%, #660099 75%, #330066 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background animated overlay */
+.home-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(138, 43, 226, 0.3) 0%, rgba(255, 20, 147, 0.2) 50%, rgba(138, 43, 226, 0.3) 100%);
+  animation: backgroundDrift 30s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes backgroundDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-20px, 20px); }
+}
+
+/* Animated glowing particles */
+.home-container::after {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(3px 3px at 15% 30%, rgba(255, 215, 0, 0.8), transparent),
+    radial-gradient(2px 2px at 70% 80%, rgba(255, 105, 180, 0.7), transparent),
+    radial-gradient(2px 2px at 40% 60%, rgba(138, 43, 226, 0.8), transparent),
+    radial-gradient(1px 1px at 85% 15%, rgba(255, 215, 0, 0.6), transparent),
+    radial-gradient(3px 3px at 20% 70%, rgba(255, 105, 180, 0.7), transparent),
+    radial-gradient(1px 1px at 65% 35%, rgba(138, 43, 226, 0.6), transparent),
+    radial-gradient(2px 2px at 90% 50%, rgba(255, 215, 0, 0.5), transparent);
+  background-size: 200% 200%, 250% 250%, 300% 300%, 200% 200%, 280% 280%, 250% 250%, 220% 220%;
+  background-position: 0% 0%, 50% 50%, 100% 0%, 0% 100%, 50% 0%, 100% 100%, 0% 50%;
+  animation: particleFloat 50s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+@keyframes particleFloat {
+  0% { background-position: 0% 0%, 50% 50%, 100% 0%, 0% 100%, 50% 0%, 100% 100%, 0% 50%; }
+  50% { background-position: 100% 100%, 0% 0%, 0% 100%, 100% 0%, 100% 50%, 0% 0%, 100% 100%; }
+  100% { background-position: 0% 0%, 50% 50%, 100% 0%, 0% 100%, 50% 0%, 100% 100%, 0% 50%; }
+}
+
+/* Header Section - Top Center */
+.header-section {
+  width: 100%;
+  padding: 60px 20px 40px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.header-subtitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d0d0d0;
+  margin-bottom: 15px;
+}
+
+.header-title {
+  font-family: 'Georgia', 'Garamond', serif;
+  font-size: 4.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #ffd700;
+  text-shadow: 0 6px 30px rgba(255, 215, 0, 0.4);
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.header-caption {
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.header-highlight {
+  display: block;
+  font-family: 'Georgia', 'Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #ffb6d9;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
+/* Cards Section - Middle Center */
+.cards-section {
+  width: 100%;
+  max-width: 1400px;
+  padding: 60px 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border-radius: 24px;
+  border: 1.5px solid rgba(255, 215, 0, 0.15);
+  padding: 40px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 0 20px 70px rgba(255, 215, 0, 0.2);
+  transform: translateY(-8px);
+}
+
+.card-title {
+  font-family: 'Georgia', 'Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #ffd700;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.card-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card-list li {
+  color: #f0f0f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-left: 20px;
+  position: relative;
+}
+
+.card-list li::before {
+  content: '✨';
+  position: absolute;
+  left: 0;
+  color: #ffd700;
+}
+
+.card-message {
+  color: #f0f0f0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: center;
+  font-weight: 300;
+}
+
+.graduates-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.graduate-item {
+  background: rgba(255, 215, 0, 0.08);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  border-left: 3px solid #ffd700;
+}
+
+.graduate-name {
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.graduate-id {
+  color: #b8860b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* CTA Button - Between Cards and Countdown */
+.cta-button {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+  color: #1a0033;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  box-shadow: 0 15px 45px rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  font-family: 'Georgia', 'Garamond', serif;
+  position: relative;
+  z-index: 2;
+  margin: 20px auto;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 75px rgba(255, 215, 0, 0.45);
+  background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+}
+
+.cta-button:active {
+  transform: translateY(-2px);
+}
+
+/* Countdown Timer - Bottom Center */
+.countdown-section {
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.countdown-timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.countdown-value {
+  font-family: 'Georgia', 'Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffd700;
+  min-width: 80px;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  border-radius: 16px;
+  padding: 15px;
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b8860b;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .header-title {
+    font-size: 3.8rem;
+  }
+
+  .cards-section {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 50px 15px 40px;
+  }
+
+  .glass-card {
+    padding: 35px;
+    min-height: 320px;
+  }
+
+  .countdown-timer {
+    gap: 25px;
+  }
+
+  .countdown-value {
+    font-size: 2.4rem;
+    min-width: 70px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    padding: 40px 15px 30px;
+  }
+
+  .header-title {
+    font-size: 2.8rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+
+  .header-caption {
+    font-size: 1rem;
+  }
+
+  .header-highlight {
+    font-size: 1.1rem;
+    margin-top: 6px;
+  }
+
+  .cards-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 15px 30px;
+  }
+
+  .glass-card {
+    padding: 30px;
+    min-height: auto;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .card-list {
+    gap: 12px;
+  }
+
+  .card-list li {
+    font-size: 0.95rem;
+  }
+
+  .card-message {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .graduates-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .graduate-item {
+    padding: 12px;
+  }
+
+  .graduate-name {
+    font-size: 0.9rem;
+  }
+
+  .graduate-id {
+    font-size: 0.75rem;
+  }
+
+  .cta-button {
+    max-width: 100%;
+    padding: 14px 30px;
+    font-size: 0.95rem;
+    margin: 15px 0;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  .countdown-value {
+    font-size: 2rem;
+    min-width: 60px;
+    padding: 10px;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section {
+    padding: 30px 12px 20px;
+  }
+
+  .header-title {
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+  }
+
+  .header-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .header-caption {
+    font-size: 0.95rem;
+  }
+
+  .header-highlight {
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+
+  .cards-section {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 30px 12px 20px;
+  }
+
+  .glass-card {
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .card-list {
+    gap: 10px;
+  }
+
+  .card-list li {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .card-message {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .graduates-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .graduate-item {
+    padding: 10px;
+  }
+
+  .graduate-name {
+    font-size: 0.85rem;
+  }
+
+  .graduate-id {
+    font-size: 0.7rem;
+  }
+
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin: 12px 0;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .countdown-item {
+    gap: 8px;
+  }
+
+  .countdown-value {
+    font-size: 1.6rem;
+    min-width: 50px;
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.8px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 215, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.5);
+}

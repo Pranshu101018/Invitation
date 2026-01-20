@@ -1,0 +1,874 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container {
+  width: 100%;
+  height: 100vh;
+  background: 
+    linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(68, 0, 119, 0.45) 50%, rgba(0, 0, 0, 0.5) 100%),
+    url('../../image.jpg'),
+    linear-gradient(135deg, #0a0015 0%, #1a0033 15%, #2d0052 35%, #440077 55%, #2d0052 75%, #1a0033 90%, #0a0015 100%);
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed, fixed, fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Cosmic nebula overlay - animated */
+.home-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse 900px 700px at 20% 30%, rgba(0, 212, 255, 0.25) 0%, transparent 40%),
+              radial-gradient(ellipse 700px 900px at 80% 70%, rgba(100, 150, 255, 0.22) 0%, transparent 45%),
+              radial-gradient(ellipse 800px 600px at 50% 50%, rgba(138, 43, 226, 0.18) 0%, transparent 50%),
+              radial-gradient(ellipse 600px 400px at 30% 70%, rgba(255, 69, 0, 0.12) 0%, transparent 40%);
+  animation: nebulaDrift 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Twinkling stars and cosmic particles */
+.home-container::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 10% 15%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 25% 8%, rgba(200, 220, 255, 0.8), transparent),
+    radial-gradient(0.5px 0.5px at 35% 25%, rgba(255, 200, 150, 0.7), transparent),
+    radial-gradient(1px 1px at 50% 12%, rgba(255, 255, 200, 0.85), transparent),
+    radial-gradient(0.8px 0.8px at 70% 35%, rgba(200, 255, 200, 0.75), transparent),
+    radial-gradient(1px 1px at 85% 20%, rgba(255, 150, 200, 0.8), transparent),
+    radial-gradient(0.6px 0.6px at 15% 60%, rgba(150, 200, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 45% 75%, rgba(255, 200, 255, 0.85), transparent),
+    radial-gradient(0.7px 0.7px at 75% 65%, rgba(200, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 90% 80%, rgba(255, 255, 150, 0.8), transparent),
+    radial-gradient(0.5px 0.5px at 20% 85%, rgba(255, 150, 100, 0.7), transparent),
+    radial-gradient(0.9px 0.9px at 60% 90%, rgba(200, 150, 255, 0.8), transparent);
+  background-size: 100% 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  animation: twinkleStar 4s ease-in-out infinite, cosmicGlow 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes nebulaDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -30px); }
+}
+
+@keyframes twinkleStar {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes cosmicGlow {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(138, 43, 226, 0.5)); }
+  50% { filter: drop-shadow(0 0 12px rgba(255, 100, 200, 0.6)); }
+}
+
+/* Header Section - Top Center */
+.header-section {
+  width: 100%;
+  padding: 30px 20px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.header-subtitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 255, 255, 0.2);
+  margin-bottom: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', sans-serif;
+}
+
+.header-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', 'Georgia', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #87ceeb;
+  text-shadow: 0 6px 30px rgba(135, 206, 235, 0.6), 0 0 20px rgba(176, 224, 230, 0.5), 0 2px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.header-caption {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.15);
+  margin-bottom: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', sans-serif;
+}
+
+.header-highlight {
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', 'Georgia', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffd700;
+  text-shadow: 0 2px 8px rgba(255, 215, 0, 0.4), 0 0 12px rgba(255, 215, 0, 0.3);
+  margin-left: 0;
+  margin-top: 8px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Event Details Section - Center */
+.event-details-section {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.details-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.details-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1.5px solid rgba(135, 206, 235, 0.3);
+  padding: 20px 32px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 32px rgba(135, 206, 235, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.details-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(135, 206, 235, 0.2);
+  animation: slideReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.details-card:nth-child(1)::before {
+  animation: slideRevealLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.details-card:nth-child(2)::before {
+  animation: slideRevealRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes slideRevealLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRevealRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.details-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(135, 206, 235, 0.5);
+  box-shadow: 0 12px 40px rgba(135, 206, 235, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  transform: translateY(-4px);
+}
+
+.details-box {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.details-date {
+  font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', 'Georgia', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #87ceeb;
+  text-shadow: 0 4px 15px rgba(135, 206, 235, 0.5), 0 0 15px rgba(176, 224, 230, 0.3);
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.details-venue {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #e0f6ff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 10px rgba(135, 206, 235, 0.3);
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+/* CTA Button - Between Cards and Countdown */
+.cta-button {
+  width: 100%;
+  max-width: 350px;
+  padding: 14px 35px;
+  background: linear-gradient(135deg, #7a4fff 0%, #00d4ff 100%);
+  color: #ffffff;
+  border: 2px solid rgba(122, 79, 255, 0.5);
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  box-shadow: 
+    0 0 20px rgba(122, 79, 255, 0.3),
+    0 0 40px rgba(0, 212, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  font-family: 'Georgia', 'Garamond', serif;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: rgba(0, 212, 255, 0.8);
+  box-shadow: 
+    0 0 30px rgba(122, 79, 255, 0.5),
+    0 0 60px rgba(0, 212, 255, 0.4),
+    0 20px 50px rgba(122, 79, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.cta-button:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Countdown Timer - Neon Style */
+.countdown-section {
+  width: 100%;
+  padding: 25px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.countdown-timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  max-width: 520px;
+  width: 100%;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.countdown-item:nth-child(1) { }
+.countdown-item:nth-child(2) { }
+.countdown-item:nth-child(3) { }
+.countdown-item:nth-child(4) { }
+
+@keyframes floatInCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.countdown-value {
+  font-family: 'Georgia', 'Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00d4ff;
+  min-width: 80px;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 
+    0 0 20px rgba(0, 212, 255, 0.6),
+    0 0 40px rgba(122, 79, 255, 0.4);
+  background: rgba(122, 79, 255, 0.1);
+  border: 2px solid rgba(0, 212, 255, 0.4);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 
+    inset 0 0 15px rgba(0, 212, 255, 0.1),
+    0 0 20px rgba(122, 79, 255, 0.2);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 
+      inset 0 0 15px rgba(0, 212, 255, 0.1),
+      0 0 20px rgba(122, 79, 255, 0.2);
+  }
+  50% {
+    box-shadow: 
+      inset 0 0 15px rgba(0, 212, 255, 0.2),
+      0 0 35px rgba(0, 212, 255, 0.4),
+      0 0 50px rgba(122, 79, 255, 0.3);
+  }
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #7ac9ff;
+  text-shadow: 0 0 10px rgba(122, 79, 255, 0.3);
+  font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .header-title {
+    font-size: 3.2rem;
+  }
+
+  .details-date {
+    font-size: 1.3rem;
+  }
+
+  .countdown-value {
+    font-size: 2rem;
+    min-width: 60px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    padding: 25px 15px 15px;
+  }
+
+  .header-title {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+
+  .header-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .header-caption {
+    font-size: 0.95rem;
+  }
+
+  .header-highlight {
+    font-size: 1.05rem;
+    margin-top: 4px;
+  }
+
+  .event-details-section {
+    padding: 20px 15px;
+    gap: 15px;
+  }
+
+  .details-date {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .details-venue {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    max-width: 100%;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+  }
+
+  .countdown-timer {
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  .countdown-value {
+    font-size: 1.8rem;
+    min-width: 55px;
+    padding: 9px;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section {
+    padding: 20px 10px 12px;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+
+  .header-subtitle {
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+  }
+
+  .header-caption {
+    font-size: 0.9rem;
+  }
+
+  .header-highlight {
+    font-size: 1rem;
+    margin-top: 3px;
+  }
+
+  .event-details-section {
+    padding: 15px 10px;
+    gap: 12px;
+  }
+
+  .details-date {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .details-venue {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  .countdown-section {
+    padding: 15px;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .countdown-item {
+    gap: 6px;
+  }
+
+  .countdown-value {
+    font-size: 1.5rem;
+    min-width: 45px;
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .countdown-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section {
+    padding: 25px 12px 15px;
+  }
+
+  .header-title {
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .header-subtitle {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+
+  .header-caption {
+    font-size: 0.95rem;
+  }
+
+  .header-highlight {
+    font-size: 1rem;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+
+  .event-details-section {
+    padding: 18px 12px;
+    gap: 14px;
+  }
+
+  .details-card {
+    padding: 18px 28px;
+  }
+
+  .details-date {
+    font-size: 1.1rem;
+  }
+
+  .details-venue {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  .countdown-section {
+    padding: 20px 12px;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .countdown-value {
+    font-size: 1.7rem;
+    min-width: 55px;
+    padding: 10px;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* Cards Section - HIDDEN */
+.cards-section {
+  display: none;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border-radius: 24px;
+  border: 1.5px solid rgba(255, 215, 0, 0.15);
+  padding: 40px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 0 20px 70px rgba(255, 215, 0, 0.2);
+  transform: translateY(-8px);
+}
+
+.card-title {
+  font-family: 'Georgia', 'Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #ffd700;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.card-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card-list li {
+  color: #f0f0f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-left: 20px;
+  position: relative;
+}
+
+.card-list li::before {
+  content: '✨';
+  position: absolute;
+  left: 0;
+  color: #ffd700;
+}
+
+.card-message {
+  color: #f0f0f0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: center;
+  font-weight: 300;
+}
+
+.graduates-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.graduate-item {
+  background: rgba(255, 215, 0, 0.08);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  border-left: 3px solid #ffd700;
+}
+
+.graduate-name {
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.graduate-id {
+  color: #b8860b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .header-title {
+    font-size: 3.2rem;
+  }
+
+  .details-date {
+    font-size: 1.3rem;
+  }
+
+  .countdown-value {
+    font-size: 2rem;
+    min-width: 60px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    padding: 25px 15px 15px;
+  }
+
+  .header-title {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+
+  .header-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .header-caption {
+    font-size: 0.95rem;
+  }
+
+  .header-highlight {
+    font-size: 1.05rem;
+    margin-top: 4px;
+  }
+
+  .event-details-section {
+    padding: 20px 15px;
+    gap: 15px;
+  }
+
+  .details-date {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .details-venue {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    max-width: 100%;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+  }
+
+  .countdown-timer {
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  .countdown-value {
+    font-size: 1.8rem;
+    min-width: 55px;
+    padding: 9px;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section {
+    padding: 20px 10px 12px;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+
+  .header-subtitle {
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+  }
+
+  .header-caption {
+    font-size: 0.9rem;
+  }
+
+  .header-highlight {
+    font-size: 1rem;
+    margin-top: 3px;
+  }
+
+  .event-details-section {
+    padding: 15px 10px;
+    gap: 12px;
+  }
+
+  .details-date {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .details-venue {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  .countdown-section {
+    padding: 15px;
+  }
+
+  .countdown-timer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .countdown-item {
+    gap: 6px;
+  }
+
+  .countdown-value {
+    font-size: 1.5rem;
+    min-width: 45px;
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .countdown-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.8px;
+  }
+}
+
+/* Custom Scrollbar - Premium Theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(122, 79, 255, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(122, 79, 255, 0.5), rgba(0, 212, 255, 0.4));
+  border-radius: 5px;
+  box-shadow: inset 0 0 6px rgba(138, 43, 226, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(122, 79, 255, 0.7), rgba(0, 212, 255, 0.6));
+  box-shadow: inset 0 0 10px rgba(138, 43, 226, 0.4);
+}
