@@ -8,8 +8,7 @@
 
   background:
     linear-gradient(135deg, rgba(0,0,0,0.5), rgba(68,0,119,0.45), rgba(0,0,0,0.5)),
-    url('../../Image.jpg'),
-    linear-gradient(135deg, #0a0015, #1a0033, #2d0052, #440077, #2d0052, #1a0033, #0a0015);
+ url("https://drive.google.com/uc?export=view&id=1KKzwHFp5y9qNsYwg2lKpCx3JECmTSZ1F"),    linear-gradient(135deg, #0a0015, #1a0033, #2d0052, #440077, #2d0052, #1a0033, #0a0015);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
