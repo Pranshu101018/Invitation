@@ -8,7 +8,7 @@
 
   background:
     linear-gradient(135deg, rgba(0,0,0,0.5), rgba(68,0,119,0.45), rgba(0,0,0,0.5)),
-    url('../../image.jpg'),
+    url('../../Image.jpg'),
     linear-gradient(135deg, #0a0015, #1a0033, #2d0052, #440077, #2d0052, #1a0033, #0a0015);
   background-size: cover;
   background-position: center;
